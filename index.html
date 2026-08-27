@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SkillSet WSP / ATR Demo</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css?v=20260723-skillset-wsp-95c">
+  <link rel="stylesheet" href="./scanner-alignment.css?v=20260724-workbook-scanner-rebuild">
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="ecosystem-row">
+      <a class="brand" href="https://www.skillsetsa.com/" target="_blank" rel="noopener" aria-label="Visit SkillSet SA">
+        <div class="brand-mark skillset-mark">
+          <img id="clientLogo" src="" alt="" hidden>
+          <span id="clientLogoFallback" class="skillset-fallback-mark" aria-label="SkillSet SA">SkillSet SA</span>
+        </div>
+        <div><strong id="clientPreparedFor">SkillSet SA</strong><span id="clientTagline">Reporting · Analytics · Insight</span></div>
+      </a>
+      <nav class="ecosystem-links" aria-label="SkillSet SA ecosystem">
+        <a href="https://www.skillsetsa.com/" target="_blank" rel="noopener">SkillSet SA</a>
+        <a href="https://scanner.skillsetsa.com/" target="_blank" rel="noopener">Free Risk Scanner</a>
+        <a class="ecosystem-review-link" href="https://www.skillsetsa.com/reporting-rescue-review/" target="_blank" rel="noopener">Book a Discussion</a>
+      </nav>
+      </div>
+      <nav class="nav app-nav" aria-label="Demo navigation">
+        <button class="nav-item active" data-view="overview"><span class="ico">C</span>Command Centre</button>
+        <button class="nav-item" data-view="workbook"><span class="ico">W</span>Workbook Scanner</button>
+        <button class="nav-item" data-view="training"><span class="ico">T</span>Training Workflow</button>
+        <button class="nav-item" data-view="people"><span class="ico">P</span>People</button>
+        <button class="nav-item" data-view="submission"><span class="ico">S</span>Sign-off</button>
+        <button class="nav-item" data-view="reports"><span class="ico">R</span>Reports</button>
+      </nav>
+      <div class="sidebar-footer"><span class="dataverse-dot"></span><div><strong id="sidebarFooterTitle">SkillSet pilot pattern</strong><span id="sidebarFooterText">Excel intake · SharePoint control · Power BI reporting</span></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+          <div><h1 id="appTitle">SkillSet WSP / ATR Demo</h1><p id="appSubtitle">Workbook scan · training workflow · reporting control · Microsoft 365 pilot.</p></div>
+        <div class="top-actions">
+          <div class="mode-badge"><strong id="environmentLabel">Static sales demo</strong><span id="privacyNotice">No client data is stored here. Production belongs inside Microsoft 365.</span></div>
+          <button class="icon-button" id="resetDemoTop">Reset</button>
+        </div>
+      </header>
+
+      <section id="overview" class="view active">
+        <div class="executive-hero product-command-hero">
+          <div class="hero-copy">
+            <span class="demo-badge" id="heroEyebrow">SkillSet SA · WSP / ATR reporting control</span>
+            <h2 id="heroTitle">Turn training spreadsheets into a controlled reporting workflow.</h2>
+            <p id="heroIntro">Load a workbook, find planning and evidence gaps, book training, record ATR proof and export management-ready views.</p>
+            <div class="hero-action-row">
+              <button class="primary" data-view-target="workbook">Scan a workbook →</button>
+              <button class="secondary-hero-action" data-view-target="reports">View reporting control ↓</button>
+            </div>
+            <small id="heroFootnote">Static demo: workbook inspection happens in this browser. A live pilot would write to SharePoint or Dataverse and report through Power BI.</small>
+          </div>
+          <div class="hero-diagnostic-card command-diagnostic-card">
+            <div class="command-card-head">
+              <span class="eyebrow">Live workbook triage</span>
+              <strong>Demo control surface</strong>
+            </div>
+            <h3>What would management need to trust before submission?</h3>
+            <div class="triage-signal-grid" aria-label="WSP ATR diagnostic signals">
+              <article class="signal-risk">
+                <span>Red</span>
+                <strong>Gaps</strong>
+                <small>Requested but not planned. Achieved without evidence.</small>
+              </article>
+              <article class="signal-watch">
+                <span>Amber</span>
+                <strong>Review</strong>
+                <small>Provider, period, cost or ownership needs confirmation.</small>
+              </article>
+              <article class="signal-stable">
+                <span>Green</span>
+                <strong>Ready</strong>
+                <small>Clean demand, planned activity and ATR proof align.</small>
+              </article>
+            </div>
+            <div class="command-flow-preview" aria-label="Microsoft 365 pilot path">
+              <span><strong>01</strong> Excel intake</span>
+              <span><strong>02</strong> SharePoint control</span>
+              <span><strong>03</strong> Power BI view</span>
+            </div>
+            <div class="filters dashboard-filters compact-filter-row command-filter-row">
+              <select id="overviewQuarterFilter" aria-label="Demo quarter"><option>All quarters</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option></select>
+              <select id="overviewProviderFilter" aria-label="Demo provider"><option>All providers</option></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-path-strip" aria-label="SkillSet pilot workflow">
+          <article><span>01</span><strong>Workbook intake</strong><small>Load demand, WSP plan and ATR achievement records.</small></article>
+          <article><span>02</span><strong>Diagnostic control</strong><small>Separate stable signals from evidence and planning risk.</small></article>
+          <article><span>03</span><strong>Operational workflow</strong><small>Book training, assign actions and record review decisions.</small></article>
+          <article><span>04</span><strong>Microsoft 365 pilot</strong><small>Move the proven process into SharePoint, Dataverse and Power BI.</small></article>
+        </div>
+
+        <div class="kpi-grid relationship-kpis executive-kpis" id="overviewOutcomes"></div>
+
+        <section class="readiness-panel" aria-labelledby="readinessTitle">
+          <div class="readiness-score-card">
+            <span class="eyebrow">Submission readiness</span>
+            <div class="readiness-score"><strong id="readinessScore">0%</strong><span id="readinessLabel">Assessing data</span></div>
+            <div class="readiness-track" aria-hidden="true"><span id="readinessBar"></span></div>
+            <p id="readinessSummary">Checking the active WSP / ATR dataset.</p>
+          </div>
+          <div class="panel quality-centre">
+            <div class="panel-head"><div><h3 id="readinessTitle">Data Quality Centre</h3><p>Prioritised checks against the active reporting dataset.</p></div><span class="status-pill" id="qualityStatus">Checking</span></div>
+            <div class="quality-grid" id="qualityChecks"></div>
+          </div>
+        </section>
+
+        <div class="executive-priority-grid">
+          <section class="panel reporting-gaps-panel">
+            <div class="panel-head">
+              <div><h3>Reporting Gaps Summary</h3><p>Records needing review before WSP / ATR reporting is trusted.</p></div>
+              <span class="status-pill">Review Status: Needs Review</span>
+            </div>
+            <div class="kpi-grid relationship-kpis data-health-kpis overview-kpis" id="overviewKpis"></div>
+          </section>
+          <section class="panel focus-areas-panel">
+            <div class="panel-head">
+              <div>
+                <h3>WSP / ATR Focus Areas</h3>
+                <p>Operational checkpoints for reviewing workbook demand, WSP planning and ATR reporting readiness.</p>
+              </div>
+            </div>
+            <div class="focus-card-grid">
+              <article><span>Training Demand</span><strong>Requested and suggested training requiring planning review.</strong></article>
+              <article><span>Planned WSP Activity</span><strong>Training interventions already allocated into the WSP plan.</strong></article>
+              <article><span>ATR Achievement</span><strong>Completed training activity available for ATR reporting.</strong></article>
+              <article><span>Reporting Gaps</span><strong>Items that need review before management reporting.</strong></article>
+            </div>
+          </section>
+        </div>
+
+        <div class="workflow-strip" aria-label="Demo workflow">
+          <span>Load Workbook</span>
+          <span>Manage Training</span>
+          <span>Book / Record ATR</span>
+          <span>Report WSP vs ATR</span>
+        </div>
+
+        <div class="dashboard-grid overview-dashboard priority-dashboard">
+          <section class="panel financial-impact">
+            <div class="panel-head">
+              <div><h3>Budget / Reporting Estimate</h3><p id="budgetEstimateNote">Demo planning estimate only. Final financial, SETA or compliance values must be confirmed through the client's approved process.</p></div>
+            </div>
+            <div class="kpi-grid relationship-kpis financial-kpis" id="financialExposure"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Training Operations</h3></div>
+            <div class="summary-tile-grid" id="bookingKpis"></div>
+          </section>
+        </div>
+
+        <div class="dashboard-grid overview-dashboard">
+          <section class="panel">
+            <div class="panel-head"><h3>Requested vs Planned vs Achieved</h3></div>
+            <div id="relationshipBars" class="bar-list"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Data Review Overview</h3></div>
+            <div id="reviewOverview" class="issue-list"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><h3>Training by Provider</h3></div>
+            <div id="providerSummary" class="bar-list"></div>
+          </section>
+          <section class="panel action-panel">
+            <div class="panel-head"><h3>Workflow Actions</h3></div>
+            <div class="action-tile-grid">
+              <button data-view-target="workbook" id="overviewLoadSample"><strong>Load Sample Workbook</strong><span>Stage the workbook story</span></button>
+              <button data-view-target="workbook"><strong>Upload CSV</strong><span>Show the CSV bridge</span></button>
+              <button data-view-target="training" data-mode="plan"><strong>Manage Training</strong><span>Add request, plan or actual</span></button>
+              <button data-view-target="training" data-booking-focus="true"><strong>Book / Schedule Training</strong><span>Capture proposed training details</span></button>
+              <button data-view-target="training" data-mode="actual"><strong>Record Completed Training</strong><span>Prepare ATR capture</span></button>
+              <button data-view-target="people"><strong>Show Employee History</strong><span>Open profile-linked records</span></button>
+              <button data-view-target="submission"><strong>Open Submission Workspace</strong><span>Assign, resolve and sign off findings</span></button>
+              <button data-view-target="reports"><strong>Open Reports</strong><span>Open filterable reporting</span></button>
+              <button id="downloadReadinessPackOverview"><strong>Download Readiness Pack</strong><span>Create the current review record</span></button>
+              <button id="copyExecutiveSummaryOverview"><strong>Copy Executive Summary</strong><span>Use during management review</span></button>
+              <button id="resetDemoOverview"><strong>Reset</strong><span>Restore the baseline</span></button>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel table-panel">
+          <div class="panel-head"><h3>Latest Activity</h3></div>
+          <div class="table-wrap"><table><thead><tr><th>Type</th><th>Employee</th><th>Course</th><th>Provider</th><th>Status</th></tr></thead><tbody id="latestActivityRows"></tbody></table></div>
+        </section>
+      </section>
+
+      <section id="workbook" class="view">
+        <div class="workbook-hero scanner-import-hero">
+          <div class="hero-copy">
+            <span class="demo-badge">Local workbook scanner</span>
+            <h2>See the structural risks hiding inside the training file.</h2>
+            <p id="workbookIntro">Your workbook is inspected on this device. It is not sent to SkillSet SA or stored online.</p>
+            <ul class="hero-checks">
+              <li>Requested training not yet planned</li>
+              <li>Planned activity not yet achieved</li>
+              <li>Evidence and sign-off gaps</li>
+              <li>Structure ready for Microsoft 365</li>
+            </ul>
+          </div>
+          <section class="panel import-drop scanner-drop-card scanner-grade-loader">
+            <div class="scanner-loader-copy">
+              <span class="eyebrow">Workbook scanner</span>
+              <h3>Inspect the workbook locally.</h3>
+              <p>Surface planning, ATR, evidence and reporting-control risks before anything is applied to the demo.</p>
+            </div>
+            <label class="workbook-file-drop scanner-upload-zone" id="workbookDropZone">
+              <input id="csvUpload" type="file" accept=".xlsx,.xlsm,.csv">
+              <span class="excel-sheet-icon" aria-hidden="true">X</span>
+              <strong id="workbookDropTitle">Drop a workbook here</strong>
+              <small id="workbookDropSub">or choose an .xlsx, .xlsm or .csv file</small>
+              <span class="choose-workbook-button">Choose workbook</span>
+            </label>
+            <div class="loader-actions">
+              <button class="sample-action" id="loadSampleWorkbook">Use sample workbook</button>
+              <button id="applyStaging" hidden>Apply scanned workbook to demo</button>
+            </div>
+            <p class="scanner-privacy-note"><strong>Privacy:</strong> processing happens in your browser memory. Close or refresh the page to clear the result. Use a copied or anonymised workbook when client policy requires it.</p>
+            <div class="workbook-steps" id="workbookSteps" aria-label="Workbook loading steps"></div>
+            <p class="security-note" id="workbookMessage" aria-live="polite">No workbook staged yet. Choose a workbook to see instant findings, then apply it when you are ready to refresh the demo.</p>
+          </section>
+        </div>
+        <div class="import-grid import-workbench import-findings-grid">
+          <section class="panel import-impact-panel"><div class="panel-head"><h3>Instant Workbook Findings</h3><p>What the file says before anyone starts manually rebuilding reports.</p></div><div id="importImpact" class="issue-list"></div></section>
+          <section class="panel import-next-step-panel"><div class="panel-head"><h3>What happens next</h3></div><div class="scanner-next-step"><span>01</span><strong>Scan the workbook</strong><p>Map rows into requested, planned and achieved activity.</p></div><div class="scanner-next-step"><span>02</span><strong>Repair the process</strong><p>Turn workbook findings into actions, ownership and sign-off.</p></div><div class="scanner-next-step"><span>03</span><strong>Move to Microsoft 365</strong><p>Replace fragile workbook dependency with governed SharePoint / Dataverse workflow.</p></div></section>
+        </div>
+        <section class="panel workbook-mapping-panel">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">Workbook structure</span>
+              <h3>Column mapping summary</h3>
+              <p>Review the mapped structure first. Open the detailed checklist only when a field needs investigation.</p>
+            </div>
+          </div>
+          <div class="workbook-mapping-layout">
+            <div>
+              <h4>Detected and mapped columns</h4>
+              <div id="detectedColumns" class="mapping-preview"></div>
+            </div>
+            <details class="field-checklist-details">
+              <summary>View required field checklist</summary>
+              <div id="fieldChecklist" class="checklist"></div>
+            </details>
+          </div>
+        </section>
+        <section class="panel table-panel" id="importPreviewPanel"><div class="panel-head"><h3>Clean Import Preview</h3><button id="applyStagingPreview">Apply To Staging</button></div><div class="table-wrap"><table><thead><tr><th>Employee</th><th>Course</th><th>Requested</th><th>Planned</th><th>Achieved</th><th>Review</th></tr></thead><tbody id="importPreview"></tbody></table></div></section>
+      </section>
+
+      <section id="training" class="view">
+        <div class="toolbar editorial-toolbar"><div><span class="section-label">Operational workflow</span><h2>Manage Training</h2><p>Move from demand to WSP planning and ATR evidence without rebuilding the workbook every cycle.</p></div></div>
+        <div class="form-layout">
+          <form id="trainingForm" class="panel form-panel">
+            <label>Action<select name="recordType"><option value="request">Add Requested / Suggested Training</option><option value="plan">Add Planned WSP Intervention</option><option value="actual">Record Achieved ATR Activity</option></select></label>
+            <label>Employee<select name="employeeNumber" required></select></label>
+            <div class="inherited-fields"><strong>Employee profile context</strong><div id="inheritedFields" class="profile-context-grid">Select an employee.</div></div>
+            <label>Provider<select name="provider" required></select></label>
+            <label>Course<select name="course" required></select></label>
+            <label>Quarter / Period<select name="period"><option>Date to be confirmed</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option><option>This month</option><option>Next month</option></select></label>
+            <fieldset class="booking-detail-fields planning-options">
+              <legend>Planning / Booking Options</legend>
+              <label>Preferred Training Window<select name="preferredWindow"><option>Date to be confirmed</option><option>This month</option><option>Next month</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option></select></label>
+              <label>Booking Status<select name="bookingStatus"><option>Not booked</option><option>Proposed</option><option>Booked</option><option>Completed</option><option>Missed / Needs Justification</option><option>Cancelled</option></select></label>
+              <label>Delivery Mode<select name="deliveryMode"><option>Classroom</option><option>Online</option><option>Blended</option><option>Workshop</option><option>Simulation</option></select></label>
+              <label>Evidence Required<select name="evidenceRequired"><option>Attendance register</option><option>Certificate</option><option>Assessment result</option><option>Facilitator report</option><option>Practical workbook</option><option>Data checklist</option><option>Not confirmed</option></select></label>
+            </fieldset>
+            <label>Cost<input name="cost" type="number" min="0" value="1500"></label>
+            <label>Hours<input name="hours" type="number" min="0" value="8"></label>
+            <fieldset class="booking-detail-fields scheduling-options">
+              <legend>Optional Scheduling Details</legend>
+              <p>Demo scheduling fields only. No calendar invite is sent.</p>
+              <label>Training Date<input name="trainingDate" type="date"></label>
+              <label>Start Time<input name="startTime" type="time" value="09:00"></label>
+              <label>End Time<input name="endTime" type="time" value="12:00"></label>
+              <label>Venue / Meeting Link<input name="venueLink" placeholder="Training room or meeting link"></label>
+              <label>Reminder Status<select name="reminderStatus"><option>Not sent</option><option>Reminder scheduled</option><option>Reminder sent</option><option>Not required</option></select></label>
+              <label class="booking-notes">Booking Notes<textarea name="bookingNotes" placeholder="Add booking notes, constraints or follow-up required."></textarea></label>
+            </fieldset>
+            <button class="primary" type="submit">Save Record</button>
+          </form>
+          <section class="panel table-panel employee-interventions-panel">
+            <div class="panel-head"><div><h3>Selected Employee Interventions</h3><p>Requested, planned, booked and achieved activity for the employee selected on the left.</p></div></div>
+            <div class="table-wrap"><table><thead><tr><th>Type</th><th>Course / Intervention</th><th>Provider</th><th>Period</th><th>Booking</th><th>Evidence</th><th>Status</th><th>Action</th></tr></thead><tbody id="trainingRows"></tbody></table></div>
+          </section>
+        </div>
+        <section class="panel provider-panel">
+          <div class="panel-head"><div><h3>Relevant Courses for Selected Employee</h3><p>Suggestions are prioritised from the employee profile context and existing intervention history.</p></div></div>
+          <div class="filters provider-search">
+            <input id="providerSearch" placeholder="Provider search">
+            <select id="providerFilter"></select>
+            <input id="courseSearch" placeholder="Course search">
+            <select id="categoryFilter"><option value="All">All categories</option></select>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Provider</th><th>Course</th><th>Category</th><th>Duration</th><th>Mode</th><th>Est. Cost</th><th>Evidence</th><th>Relevance</th><th>Action</th></tr></thead><tbody id="courseResults"></tbody></table></div>
+        </section>
+        <section class="panel booking-panel">
+          <div class="panel-head">
+            <div><h3>Book / Schedule Training</h3><p>Capture proposed booking details for demo planning visibility. No calendar invite is sent.</p></div>
+          </div>
+          <form id="bookingForm" class="booking-form">
+            <label>Planned WSP Intervention<select name="planId" required></select></label>
+            <label>Employee / Group<select name="employeeNumber" required></select></label>
+            <label>Provider<input name="provider" readonly></label>
+            <label>Course / Intervention<input name="course" readonly></label>
+            <label>Preferred Training Window<select name="preferredWindow"><option>Date to be confirmed</option><option>This month</option><option>Next month</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option></select></label>
+            <label>Training Date<input name="date" type="date"></label>
+            <label>Start Time<input name="startTime" type="time" value="09:00"></label>
+            <label>End Time<input name="endTime" type="time" value="12:00"></label>
+            <label>Delivery Mode<select name="deliveryMode"><option>Classroom</option><option>Online</option><option>Blended</option><option>Workshop</option><option>Simulation</option></select></label>
+            <label>Venue / Meeting Link<input name="location" placeholder="Training room or meeting link"></label>
+            <label>Reminder Status<select name="reminderStatus"><option>Not sent</option><option>Reminder scheduled</option><option>Reminder sent</option><option>Not required</option></select></label>
+            <label>Evidence Required<select name="evidenceRequired"><option>Attendance register</option><option>Certificate</option><option>Assessment result</option><option>Facilitator report</option><option>Practical workbook</option><option>Data checklist</option><option>Not confirmed</option></select></label>
+            <label>Booking Status<select name="bookingStatus"><option>Not booked</option><option>Proposed</option><option>Booked</option><option>Completed</option><option>Missed / Needs Justification</option><option>Cancelled</option></select></label>
+            <label class="booking-notes">Booking Notes<textarea name="bookingNotes" placeholder="Add booking notes, constraints or follow-up required."></textarea></label>
+            <button class="primary" type="submit">Save Booking</button>
+          </form>
+          <p class="security-note" id="bookingMessage">No booking action taken yet.</p>
+        </section>
+        <section class="panel table-panel">
+          <div class="panel-head"><h3>Training Bookings</h3></div>
+          <div class="table-wrap"><table><thead><tr><th>Booking Status</th><th>Employee / Group</th><th>Provider</th><th>Course / Intervention</th><th>Preferred Window</th><th>Training Date</th><th>Time</th><th>Delivery Mode</th><th>Venue / Link</th><th>Reminder Status</th><th>Evidence Required</th><th>ATR Status</th><th>Action</th></tr></thead><tbody id="bookingRows"></tbody></table></div>
+        </section>
+      </section>
+
+      <section id="people" class="view">
+        <div class="toolbar"><div><span class="section-label">Profile-linked evidence</span><h2>People Profiles</h2><p>Search a person and see requested, planned and achieved training.</p></div><label class="search"><span>Search</span><input id="peopleSearch" type="search" placeholder="name or employee number"></label></div>
+        <div class="employee-layout"><section class="panel list-panel"><p class="mobile-list-hint">Swipe to choose a profile →</p><div id="peopleList" class="employee-list"></div></section><section class="panel profile-panel" id="personProfile"></section></div>
+      </section>
+
+      <section id="submission" class="view">
+        <div class="toolbar submission-toolbar">
+          <div>
+            <span class="eyebrow">Controlled review</span>
+            <h2>Submission Workspace</h2>
+            <p>Turn data-quality signals into owned actions, evidence references and an auditable readiness decision.</p>
+          </div>
+          <div class="report-actions">
+            <button id="exportActionRegister">Export Action Register</button>
+            <button class="primary" id="downloadReadinessPack">Download Readiness Pack</button>
+          </div>
+        </div>
+
+        <div class="submission-status-grid">
+          <article class="submission-decision-card" id="submissionDecisionCard">
+            <span class="eyebrow">Current gate</span>
+            <strong id="submissionDecision">Assessing</strong>
+            <p id="submissionDecisionNote">Checking unresolved findings.</p>
+          </article>
+          <article class="kpi"><span>Open actions</span><strong id="submissionOpenCount">0</strong><small>require owner action</small></article>
+          <article class="kpi"><span>High priority</span><strong id="submissionHighCount">0</strong><small>block submission</small></article>
+          <article class="kpi"><span>Resolved</span><strong id="submissionResolvedCount">0</strong><small>closed or accepted</small></article>
+          <article class="kpi"><span>Readiness score</span><strong id="submissionScore">0%</strong><small>data-quality indicator</small></article>
+        </div>
+
+        <section class="panel submission-filter-panel">
+          <div class="panel-head"><div><h3>Action Register</h3><p>Every system-generated finding remains visible until it is resolved or formally accepted as an exception.</p></div><span class="status-pill" id="submissionFilterCount">0 findings</span></div>
+          <div class="filters submission-filters">
+            <label>Category<select id="submissionCategoryFilter"><option value="All">All categories</option></select></label>
+            <label>Severity<select id="submissionSeverityFilter"><option value="All">All severities</option><option>High</option><option>Medium</option><option>Low</option></select></label>
+            <label>Status<select id="submissionStatusFilter"><option value="Open actions">Open actions</option><option value="All">All statuses</option><option>Open</option><option>In progress</option><option>Resolved</option><option>Accepted exception</option></select></label>
+          </div>
+        </section>
+
+        <section class="panel table-panel submission-register">
+          <div class="table-wrap"><table>
+            <thead><tr><th>Priority</th><th>Category / Finding</th><th>Source</th><th>Recommended action</th><th>Owner</th><th>Due</th><th>Status</th><th>Evidence / Reference</th></tr></thead>
+            <tbody id="submissionIssueRows"></tbody>
+          </table></div>
+        </section>
+
+        <div class="submission-bottom-grid">
+          <section class="panel governance-note">
+            <span class="eyebrow">Evidence discipline</span>
+            <h3>A finding is not closed because the number changed.</h3>
+            <p>Resolve the underlying record, record who checked it, and reference the supporting evidence or approved exception. Production evidence should live in an approved SharePoint or Dataverse location—not in this public demo.</p>
+            <ul><li>Owner and due date make the next action explicit.</li><li>Status records the review decision.</li><li>Evidence reference preserves the audit trail.</li></ul>
+          </section>
+          <form class="panel submission-signoff" id="submissionSignoffForm">
+            <span class="eyebrow">Management sign-off</span>
+            <h3>Record the readiness decision</h3>
+            <label>Decision<select name="decision"><option>Not reviewed</option><option>Conditional approval</option><option>Approved for submission</option><option>Returned for correction</option></select></label>
+            <label>Approver<input name="approver" placeholder="Name and role"></label>
+            <label>Decision date<input name="decisionDate" type="date"></label>
+            <label>Notes<textarea name="notes" placeholder="Record conditions, approvals or outstanding dependencies."></textarea></label>
+            <button class="primary" type="submit">Save Sign-off</button>
+            <p class="security-note" id="submissionSignoffMessage">No sign-off recorded.</p>
+          </form>
+        </div>
+      </section>
+
+      <section id="reports" class="view">
+        <div class="toolbar">
+          <div><span class="section-label">Management reporting</span><h2>Reports</h2><p>Requested / Suggested vs Planned WSP vs Achieved ATR.</p></div>
+        </div>
+        <section class="report-filter-panel">
+          <div class="compact-head"><div><strong>Filter the management view</strong><span>Start broad, then narrow the reporting population only when needed.</span></div><button class="report-filter-toggle" id="toggleAdvancedFilters" type="button" aria-expanded="false" aria-controls="reportFilters">Show 8 more filters</button></div>
+          <div class="filters cluster-filters" id="reportFilters"></div>
+        </section>
+        <div class="report-export-summary" id="reportFilterSummary"></div>
+        <div class="report-coverage" id="reportCoverage"></div>
+        <div class="kpi-grid relationship-kpis" id="reportKpis"></div>
+        <section class="panel table-panel">
+          <div class="panel-head"><div><h3>Management Matrix</h3><p>Exports use demo data only and reflect the currently selected filters.</p></div><div class="report-actions"><button id="resetReportFilters">Reset Filters</button><button id="copyExecutiveSummaryReports">Copy Executive Summary</button><button id="copyFilteredReport">Copy Filtered Table</button><button id="exportFilteredReport">Export Filtered Report</button></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Region / Cluster</th><th>Division</th><th>Department</th><th>Provider</th><th>Course / Intervention</th><th>Sex / Gender</th><th>Race</th><th>Age Band</th><th>Disability</th><th>Requested / Suggested</th><th>Planned WSP</th><th>Achieved ATR</th><th>Requested Not Planned</th><th>Planned Not Achieved</th><th>Achieved Not Planned</th><th>Completion %</th><th>Review Items</th><th>Status</th><th>Booking Status</th></tr></thead><tbody id="reportRows"></tbody></table></div>
+        </section>
+      </section>
+
+      <section class="ecosystem-handoff" aria-labelledby="ecosystemNextStep">
+        <div>
+          <span class="section-label">Choose the smallest useful next step</span>
+          <h2 id="ecosystemNextStep">Turn the demo into an evidence-led reporting conversation.</h2>
+          <p>Use the free scanner for an immediate risk view, or book a Reporting Rescue Review when the workbook, workflow and management reporting need deeper investigation.</p>
+        </div>
+        <div class="ecosystem-handoff-actions">
+          <a class="handoff-primary" href="https://scanner.skillsetsa.com/" target="_blank" rel="noopener">Open Free Risk Scanner ↗</a>
+          <a class="handoff-secondary" href="https://www.skillsetsa.com/reporting-rescue-review/" target="_blank" rel="noopener">Book a Reporting Rescue Review ↗</a>
+        </div>
+        <small>Static demonstration only. A production implementation would use Microsoft 365 authentication, SharePoint or Dataverse, governed workflows and Power BI.</small>
+      </section>
+    </main>
+  </div>
+  <script src="./client-config.js?v=20260724-workbook-scanner-rebuild"></script>
+  <script src="./data/demo-snapshot.js?v=20260723-skillset-wsp-95b"></script>
+  <script src="./app.js?v=20260724-workbook-scanner-rebuild"></script>
+</body>
+</html>

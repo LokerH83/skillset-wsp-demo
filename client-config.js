@@ -1,0 +1,26 @@
+// White-label settings. Copy this file per deployment and change only these values.
+window.WSP_CLIENT_CONFIG = {
+  clientName: "SkillSet SA",
+  appName: "SkillSet WSP / ATR Demo",
+  preparedFor: "SkillSet SA",
+  tagline: "Reporting · Analytics · Insight",
+  logo: "./assets/skillset-sa-tree.png",
+  logoAlt: "SkillSet SA",
+  logoInitials: "SkillSet SA",
+  primaryColor: "#063c25",
+  secondaryColor: "#0e7a45",
+  accentColor: "#ffcc00",
+  financialYear: "2026/27",
+  environmentLabel: "Static sales demo",
+  privacyNotice: "No client data is stored here. Production belongs inside Microsoft 365.",
+  subtitle: "Workbook scan · training workflow · reporting control · Microsoft 365 pilot.",
+  heroEyebrow: "SkillSet SA · WSP / ATR reporting control",
+  heroTitle: "Turn training spreadsheets into a controlled reporting workflow.",
+  heroIntro: "Load a workbook, find planning and evidence gaps, book training, record ATR proof and export management-ready views.",
+  heroFootnote: "Static demo: workbook inspection happens in this browser. A live pilot would write to SharePoint or Dataverse and report through Power BI.",
+  sidebarFooterTitle: "SkillSet pilot pattern",
+  sidebarFooterText: "Excel intake · SharePoint control · Power BI reporting",
+  budgetEstimateNote: "Demo planning estimate only. Final financial, SETA or compliance values must be confirmed through the client's approved process.",
+  workbookIntro: "Your workbook is inspected on this device. It is not sent to SkillSet SA or stored online.",
+  storageKey: "skillset-wsp-demo-v1"
+};
